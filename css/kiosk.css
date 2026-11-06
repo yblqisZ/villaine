@@ -1,0 +1,883 @@
+
+/* ==========================================
+   VILLAINÉ - GROUP DISCOUNT CALCULATOR
+   ICT600 INDIVIDUAL ASSIGNMENT
+   Theme: Dark Luxury x Gothic Pink
+========================================== */
+
+/* COLOUR PALETTE */
+:root {
+    --dust-veil: #E4DDCB;
+    --blush-sin: #E19FC7;
+    --forbidden-rose: #BA6595;
+    --enchanted-wine: #4C042D;
+    --crimson-curse: #340417;
+    --nocturnal-ink: #180E12;
+}
+
+/* ==========================================
+   GENERAL STYLING
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--nocturnal-ink);
+    color: var(--dust-veil);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--blush-sin);
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.site-header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(24, 14, 18, 0.96);
+    border-bottom: 1px solid var(--enchanted-wine);
+}
+
+.navbar {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 18px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--blush-sin);
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: var(--dust-veil);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--blush-sin);
+}
+
+/* ==========================================
+   BOOKING HERO
+========================================== */
+
+.booking-hero {
+    min-height: 350px;
+    padding: 85px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 14, 18, 0.92),
+            rgba(76, 4, 45, 0.78),
+            rgba(24, 14, 18, 0.92)
+        ),
+        url('../images/villain-hero.png');
+
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--blush-sin);
+    margin-bottom: 18px;
+}
+
+.booking-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 7vw, 85px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--dust-veil);
+    margin-bottom: 20px;
+}
+
+.booking-hero h1 span {
+    display: block;
+    color: var(--blush-sin);
+}
+
+.hero-description {
+    font-size: 15px;
+    color: var(--dust-veil);
+    line-height: 1.8;
+}
+
+/* ==========================================
+   BOOKING SECTION
+========================================== */
+
+.booking-section {
+    padding: 75px 6% 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(76, 4, 45, 0.32),
+            transparent 55%
+        ),
+        var(--nocturnal-ink);
+}
+
+.booking-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* ==========================================
+   BOOKING PANELS
+========================================== */
+
+.booking-panel {
+    padding: 35px;
+
+    background: linear-gradient(
+        145deg,
+        #270F1B,
+        #180E12
+    );
+
+    border: 1px solid rgba(225, 159, 199, 0.3);
+    border-radius: 14px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.booking-panel h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--blush-sin);
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.section-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 36px;
+    height: 36px;
+
+    border: 1px solid var(--forbidden-rose);
+    border-radius: 50%;
+
+    color: var(--dust-veil);
+}
+
+/* ==========================================
+   CUSTOMER DETAILS
+========================================== */
+
+#customerSection {
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dust-veil);
+    margin-bottom: 9px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+
+    background: rgba(24, 14, 18, 0.9);
+    border: 1px solid rgba(225, 159, 199, 0.35);
+    border-radius: 7px;
+
+    color: var(--dust-veil);
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(228, 221, 203, 0.5);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--blush-sin);
+    box-shadow: 0 0 0 3px rgba(225, 159, 199, 0.15);
+}
+
+/* ==========================================
+   LAIR SELECTION
+========================================== */
+
+.lair-instruction {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--dust-veil);
+    opacity: 0.85;
+    margin-bottom: 25px;
+}
+
+.lair-selection {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* LAIR OPTION CARD */
+
+.lair-option {
+    min-width: 0;
+
+    background: linear-gradient(
+        145deg,
+        #341222,
+        #1B0D14
+    );
+
+    border: 1px solid rgba(225, 159, 199, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 20px;
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.lair-option:hover {
+    transform: translateY(-6px);
+    border-color: var(--blush-sin);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35),
+        0 0 18px rgba(225, 159, 199, 0.15);
+}
+
+.lair-option img {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    margin-bottom: 18px;
+}
+
+.lair-option h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blush-sin);
+
+    padding: 0 12px;
+    margin-bottom: 7px;
+}
+
+.lair-option > p {
+    font-size: 13px;
+    color: var(--dust-veil);
+    margin-bottom: 18px;
+}
+
+/* ==========================================
+   QUANTITY BUTTONS
+========================================== */
+
+.lair-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+
+    margin-top: auto;
+    border: 1px solid var(--forbidden-rose);
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.qty-minus,
+.qty-plus {
+    width: 43px;
+    height: 43px;
+
+    background: var(--enchanted-wine);
+    border: none;
+
+    color: var(--dust-veil);
+    font-size: 23px;
+    font-weight: 500;
+
+    transition: background 0.25s ease;
+}
+
+.qty-minus:hover,
+.qty-plus:hover {
+    background: var(--forbidden-rose);
+}
+
+.lair-qty {
+    width: 62px;
+    height: 43px;
+
+    background: var(--nocturnal-ink);
+    border: none;
+    border-left: 1px solid var(--forbidden-rose);
+    border-right: 1px solid var(--forbidden-rose);
+
+    color: var(--dust-veil);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.lair-qty::-webkit-inner-spin-button,
+.lair-qty::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ==========================================
+   DISCOUNT TABLE
+========================================== */
+
+.discount-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.discount-table th,
+.discount-table td {
+    padding: 15px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(225, 159, 199, 0.18);
+}
+
+.discount-table th {
+    background: var(--enchanted-wine);
+    color: var(--blush-sin);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.discount-table td {
+    font-size: 14px;
+    color: var(--dust-veil);
+}
+
+.discount-table tbody tr:nth-child(even) {
+    background: rgba(225, 159, 199, 0.05);
+}
+
+.discount-table tbody tr:hover {
+    background: rgba(225, 159, 199, 0.1);
+}
+
+.discount-panel .lair-instruction {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   FORM ACTION BUTTONS
+========================================== */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    margin: 40px 0 20px;
+}
+
+.calculate-btn,
+.reset-btn {
+    min-width: 220px;
+    padding: 15px 30px;
+
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.calculate-btn {
+    background: var(--blush-sin);
+    border: 1px solid var(--blush-sin);
+    color: var(--nocturnal-ink);
+}
+
+.calculate-btn:hover {
+    background: var(--forbidden-rose);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(225, 159, 199, 0.3);
+}
+
+.reset-btn {
+    background: transparent;
+    border: 1px solid var(--forbidden-rose);
+    color: var(--blush-sin);
+}
+
+.reset-btn:hover {
+    background: var(--enchanted-wine);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   VALIDATION MESSAGE
+========================================== */
+
+.form-message {
+    min-height: 24px;
+    margin: 10px auto 20px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF8F9B;
+}
+
+/* ==========================================
+   RESULT SUMMARY
+========================================== */
+
+.result-section {
+    margin-top: 35px;
+    padding: 40px;
+
+    background: linear-gradient(
+        145deg,
+        #340F23,
+        #180E12
+    );
+
+    border: 1px solid var(--forbidden-rose);
+    border-radius: 14px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    scroll-margin-top: 100px;
+}
+
+.result-section > h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--blush-sin);
+
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.result-info,
+.result-total {
+    min-width: 0;
+}
+
+.result-info > p {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(225, 159, 199, 0.15);
+
+    font-size: 13px;
+}
+
+.result-info > p span {
+    color: var(--blush-sin);
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.result-subheading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    color: var(--blush-sin);
+    margin: 25px 0 12px;
+}
+
+#selectedLairsResult {
+    padding: 15px;
+
+    background: rgba(24, 14, 18, 0.55);
+    border: 1px solid rgba(225, 159, 199, 0.15);
+    border-radius: 7px;
+
+    margin-bottom: 15px;
+}
+
+#selectedLairsResult p {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+
+    font-size: 13px;
+    line-height: 1.8;
+    padding: 5px 0;
+}
+
+#selectedLairsResult p span:last-child {
+    color: var(--blush-sin);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.result-total > p {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(225, 159, 199, 0.2);
+
+    font-size: 14px;
+}
+
+.result-total > p span {
+    color: var(--blush-sin);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.total-payable {
+    margin-top: 30px;
+    padding: 25px;
+
+    background: var(--enchanted-wine);
+    border: 1px solid var(--forbidden-rose);
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.total-payable small {
+    display: block;
+    color: var(--dust-veil);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.total-payable h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 55px);
+    font-weight: 700;
+    color: var(--blush-sin);
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.site-footer {
+    padding: 35px 20px;
+    background: #10090C;
+    border-top: 1px solid var(--enchanted-wine);
+    text-align: center;
+}
+
+.site-footer p {
+    font-size: 12px;
+    color: var(--dust-veil);
+    margin-bottom: 5px;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+    .lair-selection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .booking-section {
+        padding: 60px 5% 80px;
+    }
+
+    .result-grid {
+        gap: 25px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .booking-hero {
+        min-height: 290px;
+        padding: 65px 6%;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .booking-hero h1 {
+        font-size: clamp(42px, 9vw, 65px);
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .booking-section {
+        padding: 45px 5% 65px;
+    }
+
+    .booking-panel {
+        padding: 25px;
+    }
+
+    .booking-panel h2 {
+        font-size: 26px;
+    }
+
+    .result-section {
+        padding: 28px;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - SMALL MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .lair-selection {
+        grid-template-columns: 1fr;
+    }
+
+    .lair-option img {
+        height: 230px;
+    }
+
+    .booking-panel {
+        padding: 20px;
+    }
+
+    .booking-panel h2 {
+        font-size: 23px;
+        gap: 10px;
+    }
+
+    .section-number {
+        min-width: 32px;
+        height: 32px;
+        font-size: 11px;
+    }
+
+    .calculate-btn,
+    .reset-btn {
+        width: 100%;
+    }
+
+    .form-actions {
+        gap: 12px;
+    }
+
+    .result-section {
+        padding: 22px;
+    }
+
+    .result-section > h2 {
+        font-size: 30px;
+    }
+
+    .discount-table th,
+    .discount-table td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .booking-panel h2 {
+        font-size: 20px;
+    }
+
+    .result-info > p,
+    .result-total > p {
+        font-size: 12px;
+    }
+
+    .total-payable {
+        padding: 18px 12px;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY - REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .lair-option,
+    .calculate-btn,
+    .reset-btn {
+        transition: none;
+    }
+
+    .lair-option:hover,
+    .calculate-btn:hover,
+    .reset-btn:hover {
+        transform: none;
+    }
+}

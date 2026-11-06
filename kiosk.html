@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Calculate your VILLAINÉ lair rental costs and unlock group discounts.">
+
+    <title>VILLAINÉ | Group Discount Calculator</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- EXTERNAL CSS -->
+    <link rel="stylesheet" href="css/kiosk.css">
+
+    <!-- EXTERNAL JAVASCRIPT -->
+    <script src="js/kiosk.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER AND NAVIGATION -->
+    <header class="site-header">
+
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="index.html" class="logo">
+                VILLAINÉ
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#founder">Founder</a>
+                <a href="kiosk.html" class="active"
+                   aria-current="page">Kiosk</a>
+                <a href="index.html#lairs">Lairs</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- BOOKING HERO -->
+        <section class="booking-hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    VILLAINÉ PRIVATE RESERVATIONS
+                </p>
+
+                <h1>
+                    GROUP DISCOUNT
+                    <span>CALCULATOR</span>
+                </h1>
+
+                <p class="hero-description">
+                    Plan bigger. Rent more.
+                    Unlock exclusive group discounts.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- BOOKING CALCULATOR -->
+        <section class="booking-section">
+
+            <div class="booking-container">
+
+                <form id="bookingForm" novalidate>
+
+                    <div class="booking-grid">
+
+                        <!-- CUSTOMER DETAILS -->
+                        <section class="booking-panel"
+                                 id="customerSection">
+
+                            <h2>
+                                <span class="section-number">01</span>
+                                CUSTOMER DETAILS
+                            </h2>
+
+                            <!-- FULL NAME -->
+                            <div class="form-group">
+
+                                <label for="customerName">
+                                    Full Name *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="customerName"
+                                    name="customerName"
+                                    placeholder="Enter your full name"
+                                    autocomplete="name"
+                                    required>
+
+                            </div>
+
+                            <!-- EMAIL ADDRESS -->
+                            <div class="form-group">
+
+                                <label for="customerEmail">
+                                    Email Address *
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="customerEmail"
+                                    name="customerEmail"
+                                    placeholder="Enter your email address"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <!-- PHONE NUMBER -->
+                            <div class="form-group">
+
+                                <label for="customerNumPhone">
+                                    Phone Number *
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="customerNumPhone"
+                                    name="customerNumPhone"
+                                    placeholder="e.g. 0123456789"
+                                    inputmode="numeric"
+                                    pattern="01[0-9]{8,9}"
+                                    maxlength="11"
+                                    autocomplete="tel"
+                                    required>
+
+                            </div>
+
+                        </section>
+
+                        <!-- LAIR SELECTION -->
+                        <section class="booking-panel lair-booking-panel"
+                                 id="lairSection">
+
+                            <h2>
+                                <span class="section-number">02</span>
+                                CHOOSE YOUR LAIRS
+                            </h2>
+
+                            <p class="lair-instruction">
+                                Select your desired lairs and adjust
+                                the quantity for each type.
+                                All prices are for one day of rental.
+                                Rent more to unlock group discounts.
+                            </p>
+
+                            <div class="lair-selection">
+
+                                <!-- LAIR 1: UNDERGROUND BUNKER -->
+                                <div class="lair-option"
+                                     data-lair="bunker">
+
+                                    <img
+                                        src="images/underground-bunker.png"
+                                        alt="Underground Bunker">
+
+                                    <h3>Underground Bunker</h3>
+
+                                    <p>RM 150 / lair / day</p>
+
+                                    <div class="lair-quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-minus"
+                                            aria-label="Decrease Underground Bunker quantity">
+                                            −
+                                        </button>
+
+                                        <input
+                                            type="number"
+                                            class="lair-qty"
+                                            data-price="150"
+                                            data-name="Underground Bunker"
+                                            value="0"
+                                            min="0"
+                                            max="50"
+                                            step="1"
+                                            aria-label="Underground Bunker quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-plus"
+                                            aria-label="Increase Underground Bunker quantity">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- LAIR 2: EVIL LABORATORY -->
+                                <div class="lair-option"
+                                     data-lair="laboratory">
+
+                                    <img
+                                        src="images/evil-laboratory.png"
+                                        alt="Evil Laboratory">
+
+                                    <h3>Evil Laboratory</h3>
+
+                                    <p>RM 250 / lair / day</p>
+
+                                    <div class="lair-quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-minus"
+                                            aria-label="Decrease Evil Laboratory quantity">
+                                            −
+                                        </button>
+
+                                        <input
+                                            type="number"
+                                            class="lair-qty"
+                                            data-price="250"
+                                            data-name="Evil Laboratory"
+                                            value="0"
+                                            min="0"
+                                            max="50"
+                                            step="1"
+                                            aria-label="Evil Laboratory quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-plus"
+                                            aria-label="Increase Evil Laboratory quantity">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- LAIR 3: DARK FORTRESS -->
+                                <div class="lair-option"
+                                     data-lair="fortress">
+
+                                    <img
+                                        src="images/dark-fortress.png"
+                                        alt="Dark Fortress">
+
+                                    <h3>Dark Fortress</h3>
+
+                                    <p>RM 400 / lair / day</p>
+
+                                    <div class="lair-quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-minus"
+                                            aria-label="Decrease Dark Fortress quantity">
+                                            −
+                                        </button>
+
+                                        <input
+                                            type="number"
+                                            class="lair-qty"
+                                            data-price="400"
+                                            data-name="Dark Fortress"
+                                            value="0"
+                                            min="0"
+                                            max="50"
+                                            step="1"
+                                            aria-label="Dark Fortress quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-plus"
+                                            aria-label="Increase Dark Fortress quantity">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- LAIR 4: SKY TOWER -->
+                                <div class="lair-option"
+                                     data-lair="tower">
+
+                                    <img
+                                        src="images/sky-tower.png"
+                                        alt="Sky Tower">
+
+                                    <h3>Sky Tower</h3>
+
+                                    <p>RM 550 / lair / day</p>
+
+                                    <div class="lair-quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-minus"
+                                            aria-label="Decrease Sky Tower quantity">
+                                            −
+                                        </button>
+
+                                        <input
+                                            type="number"
+                                            class="lair-qty"
+                                            data-price="550"
+                                            data-name="Sky Tower"
+                                            value="0"
+                                            min="0"
+                                            max="50"
+                                            step="1"
+                                            aria-label="Sky Tower quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-plus"
+                                            aria-label="Increase Sky Tower quantity">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- LAIR 5: CRIMSON PALACE -->
+                                <div class="lair-option"
+                                     data-lair="palace">
+
+                                    <img
+                                        src="images/crimson-palace.png"
+                                        alt="Crimson Palace">
+
+                                    <h3>Crimson Palace</h3>
+
+                                    <p>RM 700 / lair / day</p>
+
+                                    <div class="lair-quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-minus"
+                                            aria-label="Decrease Crimson Palace quantity">
+                                            −
+                                        </button>
+
+                                        <input
+                                            type="number"
+                                            class="lair-qty"
+                                            data-price="700"
+                                            data-name="Crimson Palace"
+                                            value="0"
+                                            min="0"
+                                            max="50"
+                                            step="1"
+                                            aria-label="Crimson Palace quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-plus"
+                                            aria-label="Increase Crimson Palace quantity">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- LAIR 6: ABYSS SANCTUARY -->
+                                <div class="lair-option"
+                                     data-lair="abyss">
+
+                                    <img
+                                        src="images/abyss-sanctuary.png"
+                                        alt="Abyss Sanctuary">
+
+                                    <h3>Abyss Sanctuary</h3>
+
+                                    <p>RM 900 / lair / day</p>
+
+                                    <div class="lair-quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-minus"
+                                            aria-label="Decrease Abyss Sanctuary quantity">
+                                            −
+                                        </button>
+
+                                        <input
+                                            type="number"
+                                            class="lair-qty"
+                                            data-price="900"
+                                            data-name="Abyss Sanctuary"
+                                            value="0"
+                                            min="0"
+                                            max="50"
+                                            step="1"
+                                            aria-label="Abyss Sanctuary quantity">
+
+                                        <button
+                                            type="button"
+                                            class="qty-plus"
+                                            aria-label="Increase Abyss Sanctuary quantity">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                        <!-- GROUP DISCOUNT RULES -->
+                        <section class="booking-panel discount-panel"
+                                 id="discountSection">
+
+                            <h2>
+                                <span class="section-number">03</span>
+                                GROUP DISCOUNT RATE
+                            </h2>
+
+                            <table class="discount-table">
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Total Lairs</th>
+                                        <th scope="col">Discount</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>1–2</td>
+                                        <td>0%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3–4</td>
+                                        <td>5%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>5–9</td>
+                                        <td>10%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>10–50</td>
+                                        <td>15%</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                            <p class="lair-instruction">
+                                Discounts are based on the total
+                                number of lairs selected across all
+                                lair types. A maximum of 50 lairs
+                                can be selected per calculation.
+                            </p>
+
+                        </section>
+
+                    </div>
+
+                    <!-- FORM BUTTONS -->
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="calculate-btn">
+                            CALCULATE TOTAL
+                        </button>
+
+                        <button
+                            type="reset"
+                            class="reset-btn">
+                            RESET
+                        </button>
+
+                    </div>
+
+                    <!-- VALIDATION MESSAGE -->
+                    <p
+                        id="formMessage"
+                        class="form-message"
+                        role="alert">
+                    </p>
+
+                </form>
+
+                <!-- RESULT SUMMARY -->
+                <section class="result-section"
+                         id="resultSection"
+                         aria-live="polite">
+
+                    <h2>RESULT SUMMARY</h2>
+
+                    <div class="result-grid">
+
+                        <!-- CUSTOMER AND LAIR DETAILS -->
+                        <div class="result-info">
+
+                            <p>
+                                Customer:
+                                <span id="resultName">—</span>
+                            </p>
+
+                            <p>
+                                Email:
+                                <span id="resultEmail">—</span>
+                            </p>
+
+                            <p>
+                                Phone:
+                                <span id="resultPhone">—</span>
+                            </p>
+
+                            <h3 class="result-subheading">
+                                SELECTED LAIRS
+                            </h3>
+
+                            <div id="selectedLairsResult">
+                                <p>No lairs selected yet.</p>
+                            </div>
+
+                            <p>
+                                Total Lairs:
+                                <span id="resultQuantity">0</span>
+                            </p>
+
+                        </div>
+
+                        <!-- CALCULATION SUMMARY -->
+                        <div class="result-total">
+
+                            <p>
+                                Subtotal
+                                <span id="resultSubtotal">
+                                    RM 0.00
+                                </span>
+                            </p>
+
+                            <p>
+                                Group Discount
+                                <span id="resultDiscount">
+                                    RM 0.00
+                                </span>
+                            </p>
+
+                            <p>
+                                Discount Rate
+                                <span id="resultRate">
+                                    0%
+                                </span>
+                            </p>
+
+                            <div class="total-payable">
+
+                                <small>TOTAL AMOUNT</small>
+
+                                <h3 id="resultFinal">
+                                    RM 0.00
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <p>
+            &copy; 2026 VILLAINÉ. All Rights Reserved.
+        </p>
+
+        <p>Your secrecy is our priority.</p>
+
+    </footer>
+
+</body>
+</html>
